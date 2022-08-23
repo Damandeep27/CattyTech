@@ -1,51 +1,33 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
-import CreateTask from './CreateTask';
-import axios from'axios';
-import ToDo from './ToDo';
-import img from './images/test.png';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import { Routes} from "react-router-dom";
+import {Route,Link} from 'react-router-dom'
 
 
 
-const App = props => {
-
-    const [task,setTask]=useState();
-
-    const[updated, setUpdated]=useState(0);
-
-    const handleUpdates=()=>{
-            
-            if(updated==1)
-                setUpdated(0)
-            else
-                setUpdated(1)
-            
-
-    }
-
+const App = () => {
+  return (
   
+            <div className="App">
+            
+            <Routes> 
+            <Route path='/'>
+                <Route index element={<Home />} />
+            
+                <Route path='/login'>
+                    <Route index element={<Login />} />
+                </Route>
+                
+      
+            </Route>
+                
+              
+            </Routes>
 
-    return (<div id="app">
-
-       
-        <h1>My Todo List</h1>
-
-
-
-        <div className='background'>
-        
-          <img src={img} />
-    
         </div>
-        
-        
-        
-        <CreateTask handleUpdates={handleUpdates}/>
-        <ToDo handleUpdates={handleUpdates} updated={updated}/>
-        
-        
-        
-    </div>);
+    
+  );
 }
 
 export default App;
