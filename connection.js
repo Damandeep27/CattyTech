@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-let mongoDB = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}cluster0.sm6ne.mongodb.net/ToDoList?retryWrites=true&w=majority`;
+let mongoDB = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}cluster0.sm6ne.mongodb.net/TechShop?retryWrites=true&w=majority`;
 
 module.exports = mongoose.connect(mongoDB);
 
