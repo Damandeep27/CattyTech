@@ -9,7 +9,7 @@ import { FiCopy } from 'react-icons/fi'
 
 const Navbar = ({ isLanding=false,isHome = true }) => {
     const { isLoggedIn, Logout, email, CopyEmail } = useUser();
-    
+    const { cart} = useCore();
 
 
     return (
@@ -78,7 +78,7 @@ const Navbar = ({ isLanding=false,isHome = true }) => {
                                         )}
                                     </HStack>
                                     <HStack>
-                                        <Tag bg='rgba(67,122,255,0.5)' cursor='pointer' onClick={CopyEmail}>
+                                        <Tag bg='rgb(147, 3, 163,0.5)' cursor='pointer' onClick={CopyEmail}>
                                             <TagLabel>
                                                 {email}
                                             </TagLabel>

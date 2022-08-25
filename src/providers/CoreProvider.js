@@ -17,9 +17,54 @@ export const CoreProvider = ({ children }) => {
     const navigate=useNavigate();
     const [hotDeals, setHotDeals] = useState();
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState();
+    const [categoryProducts, setCategoryProducts] = useState([]);
+    const [categoryProductsLoading, setCategoryProductsLoading] = useState(false);
+    const [isAddingCart, setIsAddingCart] = useState(false);
+
+    const getCategoryProducts = async (category) => {
+        setCategoryProductsLoading(true);
+
+        const res = await commerce.products.list({
+            category_slug: [category]
+        });
+        console.log(res);
+
+        setCategoryProducts(res.data);
+        setCategoryProductsLoading(false);
+    }
+
+    const AddToCart = async (productId) => {
+        setIsAddingCart(true);
+
+        await commerce.cart.add(productId, 1);
+
+        await getCart();
+
+        setIsAddingCart(false);
+
+        toast({
+            title: 'Success',
+            description: `Successfully added <${productId}> to cart`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        })
+    }
+
+
+
+
 
     const addCustomer = async (email) => {
+        console.log("hello");
         await commerce.customer.login(email, `${config.serverUrl}/login?token=`);
+        console.log("bye");
+    }
+
+    const getCart = async () => {
+        const res = await commerce.cart.contents();
+        setCart(res);
     }
 
     const getAccessToken = async (token) => {
@@ -48,6 +93,12 @@ export const CoreProvider = ({ children }) => {
         getProducts();
     }, [])
 
+
+    const getCategory = async () => {
+        const res = await commerce.categories.list();
+        return res.data;
+    }
+
     const controllers = {
         addCustomer,
         token,
@@ -56,6 +107,13 @@ export const CoreProvider = ({ children }) => {
         products,
         hotDeals,
         getAccessToken,
+        getCategory,
+        cart,
+        getCart,
+        categoryProducts,
+        getCategoryProducts,
+        categoryProductsLoading,
+        AddToCart,
 
 
 
