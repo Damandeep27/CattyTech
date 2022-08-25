@@ -20,6 +20,8 @@
     "@chec/commerce.js": "^2.8.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
+    "@stripe/react-stripe-js": "^1.10.0",
+    "@stripe/stripe-js": "^1.35.0",
     "axios": "^0.21.4",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.2.6",
@@ -34,6 +36,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
+    "stripe": "^8.213.0",
     "style-loader": "^3.0.0",
     "webpack": "^5.43.0",
     "webpack-cli": "^4.7.2"
