@@ -13,7 +13,7 @@ const Home = props => {
     <>
          <Box className='home'>
           <Helmet>
-              <title>Home | Swift Shop</title>
+              <title>Catty tech | Home </title>
           </Helmet>
           <Navbar isLanding isHome={false}/>
           <LandingContents />
