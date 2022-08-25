@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Shop from './pages/Shop';
 import Product from './pages/[productId]'
+import Cart from './pages/Cart';
 import { Routes} from "react-router-dom";
 import {Route,Link} from 'react-router-dom'
 import Category from './pages/[category]';
@@ -29,6 +30,9 @@ const App = () => {
                 </Route>
                 <Route path='/product/:productId'>
                     <Route index element={<Product />} />
+                </Route>
+                <Route path='/cart'>
+                    <Route index element={<Cart />} />
                 </Route>
                 
       
