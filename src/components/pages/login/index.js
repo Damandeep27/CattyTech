@@ -14,7 +14,8 @@ const LoginContents = () => {
     const navigate = useNavigate();
     const query = new URLSearchParams(window.location.search);
     const { token } = query;
-    const toast = useToast();
+    console.log(`token : ${token}`)
+    const toast = useToast(); 
 
     useEffect(() => {
         if (!protectLoginPage) return;
@@ -23,6 +24,7 @@ const LoginContents = () => {
 
     useEffect(() => {
         if (!token) return;
+        console.log(token);
         const parsedToken = token.substring(1);
         setToken(parsedToken);
         setIsLoggedIn(true);

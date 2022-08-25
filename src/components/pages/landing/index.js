@@ -105,7 +105,7 @@ const LandingContents = () => {
                                                     </Link>
                                                 </Flex>
                                             ) : (
-                                                <Text fontSize='10pt' color='whiteAlpha.200'>
+                                                <Text fontSize='10pt' color='whiteAlpha.400'>
                                                     You must be logged in to buy this product.
                                                 </Text>
                                             )}
