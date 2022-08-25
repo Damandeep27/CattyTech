@@ -22,6 +22,12 @@ export const CoreProvider = ({ children }) => {
     const [categoryProductsLoading, setCategoryProductsLoading] = useState(false);
     const [isAddingCart, setIsAddingCart] = useState(false);
 
+
+    const getProduct = async (productId) => {
+        const res = await commerce.products.retrieve(productId);
+        return res;
+    }
+
     const getCategoryProducts = async (category) => {
         setCategoryProductsLoading(true);
 
@@ -34,7 +40,7 @@ export const CoreProvider = ({ children }) => {
         setCategoryProductsLoading(false);
     }
 
-    const AddToCart = async (productId) => {
+    const AddToCart = async (productId,name) => {
         setIsAddingCart(true);
 
         await commerce.cart.add(productId, 1);
@@ -45,7 +51,7 @@ export const CoreProvider = ({ children }) => {
 
         toast({
             title: 'Success',
-            description: `Successfully added <${productId}> to cart`,
+            description: `Successfully added "${name}" to cart`,
             status: 'success',
             duration: 3000,
             isClosable: true,
@@ -114,6 +120,8 @@ export const CoreProvider = ({ children }) => {
         getCategoryProducts,
         categoryProductsLoading,
         AddToCart,
+        isAddingCart,
+        getProduct
 
 
 
