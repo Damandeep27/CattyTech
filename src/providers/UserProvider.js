@@ -33,7 +33,7 @@ export const UserProvider = ({ children }) => {
             localStorage.setItem('cattytech-email', email);
 
             if (isUser) {
-               
+                console.log(isUser)
                 await addCustomer(email);
                 setIsCustomer(true);
                 setEmail(email);
