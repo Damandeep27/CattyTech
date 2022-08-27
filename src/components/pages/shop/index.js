@@ -3,9 +3,12 @@ import {Link} from 'react-router-dom'
 import { FiExternalLink } from 'react-icons/fi'
 import { useShop } from './hooks/useShop'
 import React from 'react'
+import { useEffect } from 'react'
+import {protectPage} from '../../../providers/UserProvider'
 
 const ShopContents = () => {
     const { categories } = useShop();
+   
     const images =['https://cdn.chec.io/merchants/46250/assets/V6zt3seWtEj1PudZ%7C15341353.jpg']
 
     return ( 

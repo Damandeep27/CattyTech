@@ -13,7 +13,7 @@ const Category = props => {
     <>
          <Box className='category'>
           <Helmet>
-              <title>Category | Catty tech</title>
+              <title>Category | Catty Tech</title>
           </Helmet>
           <Navbar />
           <Products />

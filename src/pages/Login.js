@@ -4,12 +4,12 @@ import LoginContents from '../components/pages/login'
 import {Helmet} from "react-helmet";
 
 
-const Home = props => {
+const Login = props => {
 
     return (
       
     <>
-         <Box className='home'>
+         <Box className='login'>
           <Helmet>
               <title>Login | Catty Tech</title>
           </Helmet>
@@ -21,4 +21,4 @@ const Home = props => {
       );
 }
 
-export default Home;
+export default Login;

@@ -11,7 +11,7 @@ import { Elements } from '@stripe/react-stripe-js'
 import React from 'react'
 
 //config.strip.publicKey
-const stripePromise = loadStripe('pk_test_51L9rU2KMGpkmvkvMkeKe1RCaRPNEv1CdehWyy1shxWAIhcqPxnP1N6QjXlLuTABa35IoZ10Y4e9wCoQFhCxVOfoM00PXKy5NCd6');
+const stripePromise = loadStripe('pk_test_51L9rU2KMGpkmvkvMkeKe1RCaRPNEv1CdehWyy1shxWAIhcqPxnP1N6QjXlLuTABa35IoZ10Y4e9wCoQFhCxVOfoM00PXKy5NCd');
 
 const CartContent = () => {
     const { cart, removeItemCart, onCheckout, isCheckingOut } = useCore();

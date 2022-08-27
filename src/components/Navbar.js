@@ -9,7 +9,7 @@ import { FiCopy } from 'react-icons/fi'
 
 const Navbar = ({ isLanding=false,isHome = true }) => {
     const { isLoggedIn, Logout, email, CopyEmail } = useUser();
-    const { cart} = useCore();
+    const { cart,  onPayments} = useCore();
 
 
     return (
@@ -40,16 +40,16 @@ const Navbar = ({ isLanding=false,isHome = true }) => {
                         <HStack spacing='.5em'>
                             {isLanding && (
                                 <>
-                                    <Link to='#hotdeals'>
+                                    <a href='#hotdeals'>
                                         <Button background='none'>
                                             Hot Deals 🔥
                                         </Button>
-                                    </Link>
-                                    <Link to='#features'>
+                                    </a>
+                                    <a href='#features'>
                                         <Button background='none'>
                                             Features ✨
                                         </Button>
-                                    </Link>
+                                    </a>
                                 </>
                             )}
                             {isLoggedIn ? (
@@ -91,7 +91,7 @@ const Navbar = ({ isLanding=false,isHome = true }) => {
                                                 My User
                                             </MenuButton>
                                             <MenuList>
-                                                <MenuItem onClick={()=>"hello"}>
+                                                <MenuItem onClick={onPayments}>
                                                     Payments 💵
                                                 </MenuItem>
                                                 <MenuItem onClick={Logout}>

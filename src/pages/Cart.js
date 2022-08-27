@@ -13,7 +13,7 @@ const Cart = props => {
     <>
          <Box className='cart'>
           <Helmet>
-              <title>Product | Catty Tech</title>
+              <title>Cart | Catty Tech</title>
           </Helmet>
           <Navbar />
           <CartContent /> 

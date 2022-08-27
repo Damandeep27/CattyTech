@@ -1,9 +1,12 @@
 const express = require("express");
+const path = require('path');
 const app = express();
 const dotenv = require("dotenv");
 dotenv.config()
 
+
 const connected = require("./connection.js");
+
 
 connected 
 .then(()=>{
@@ -16,13 +19,14 @@ app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());//parse JSON requests made using axios
 
-app.get('/',(req,res)=>{
-    res.send("testing0");
-});
-
 const router=require("./routes/index.js");
 
-app.use('/api/v1',router);
+app.use('/api/',router);
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+})
+
+
 
 
 

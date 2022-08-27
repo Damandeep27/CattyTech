@@ -1,9 +1,6 @@
-const router=require('express').Router({mergeParams:true});
-const subtaskRouter=require('./subtasks.js');
-const taskRouter=require('./tasks.js');
+const router = require('express').Router();
+const payment = require('./payment');
 
-router.use('/subtasks',subtaskRouter);
-router.use('/tasks',taskRouter);
+router.use('/payment', payment);
 
-module.exports=router;
-
+module.exports = router;

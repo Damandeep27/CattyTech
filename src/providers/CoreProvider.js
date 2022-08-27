@@ -5,8 +5,9 @@ import Commerce from '@chec/commerce.js';
 import { useUser } from './UserProvider'
 import { config } from '../config/index'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
-const commerce = new Commerce('pk_4625025551459173438c4a318de69414e09c39d624909');
+const commerce = new Commerce('pk_test_46250e26ead92517e9800c9a904715b822f07bd61180e');
 export const CoreContext = createContext({})
 export const useCore = () => useContext(CoreContext)
 
@@ -107,6 +108,7 @@ export const CoreProvider = ({ children }) => {
     const addCustomer = async (email) => {
         await commerce.customer.login(email, `${config.serverUrl}/login?token=`);
     }
+    
 
     const getCart = async () => {
         const res = await commerce.cart.contents();
@@ -156,6 +158,7 @@ export const CoreProvider = ({ children }) => {
             const cartId = getCardId();
         
             const checkoutDataRes = await commerce.checkout.generateToken(cartId, { type: 'cart' });
+            
             setCheckoutData(checkoutDataRes);
 
             await getShippingCountries(checkoutDataRes.id);
@@ -193,6 +196,7 @@ export const CoreProvider = ({ children }) => {
 
             if (paymentDiscount.length > 0) {
                 const res = await axios.get(`${config.serverUrl}/api/payment/getCoupons`);
+                
                 const isValid = res.data.filter(codes => codes.id == paymentDiscount).length > 0;
 
                 if (isValid) {
@@ -215,7 +219,7 @@ export const CoreProvider = ({ children }) => {
             if (error) throw new Error(error.message);
 
             const orderData = {
-                line_items: checkoutData.live.line_items,
+                line_items: checkoutData.line_items,
                 customer: { 
                     firstname: paymentName, 
                     lastname: paymentLastName, 
@@ -244,10 +248,11 @@ export const CoreProvider = ({ children }) => {
 
             const res = await commerce.checkout.capture(checkoutData.id, orderData);
             
+            
             localStorage.setItem('cattytech-user', 'true');
 
             setIsPaying(false);
-            navigate('/')
+            navigate('/success')
             
 
             //emptyCart();
@@ -271,7 +276,7 @@ export const CoreProvider = ({ children }) => {
 
     const onPayments = () => {
         try {
-            if (!JSON.parse(localStorage.getItem('swiftshop-user'))) throw new Error('You must order something first, to access payments page.')
+            if (!JSON.parse(localStorage.getItem('cattytech-user'))) throw new Error('You must order something first, to access payments page.')
             if (!commerce.customer.isLoggedIn()) throw new Error('Token expired, please relogin.')
 
             navigate('/payments');

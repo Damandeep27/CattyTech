@@ -7,14 +7,17 @@ import { useNavigate } from 'react-router-dom'
 import { useCore } from '../../../providers/CoreProvider'
 import img from '../../../images/logo.png'
 import { FaRegBell } from 'react-icons/fa'
+import { useSearchParams } from 'react-router-dom'
 
 const LoginContents = () => {
     const { setToken, getAccessToken } = useCore();
     const { email, setEmail, LoginAsGuest, isEmailWrong, protectLoginPage, isCustomer, setIsLoggedIn } = useUser();
     const navigate = useNavigate();
-    const query = new URLSearchParams(window.location.search);
-    const { token } = query;
-    console.log(`token : ${token}`)
+    const [searchParams, setSearchParams] = useSearchParams();
+ 
+    
+    const token  = searchParams.get("token")
+   
     const toast = useToast(); 
 
     useEffect(() => {
@@ -24,7 +27,7 @@ const LoginContents = () => {
 
     useEffect(() => {
         if (!token) return;
-        console.log(token);
+        
         const parsedToken = token.substring(1);
         setToken(parsedToken);
         setIsLoggedIn(true);
@@ -72,8 +75,8 @@ const LoginContents = () => {
                                 Log in
                             </Text>
                             {isCustomer && (
-                                <Alert status='info'>
-                                    <AlertIcon />
+                                <Alert bg=' rgb(255, 102, 0)' status='info'>
+                                    <AlertIcon color="white"/>
                                     Customer Detected, please check your email to login.
                                 </Alert>
                             )}

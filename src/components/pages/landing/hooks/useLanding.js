@@ -7,8 +7,9 @@ export const useLanding = () => {
 
     useEffect(() => {
         const getCustomers = async () => {
-            // const res = await axios.get(`${config.serverUrl}/api/payment/getCustomers`);
-            setCustomerCount(4);
+            const res = await axios.get(`${config.serverUrl}/api/payment/getCustomers`);
+            
+            setCustomerCount(res.data.length);
         }
         getCustomers();
     }, [])
