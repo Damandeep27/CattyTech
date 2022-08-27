@@ -29,11 +29,11 @@ export const UserProvider = ({ children }) => {
             if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) throw new Error('Invalid email address');
 
             const isUser = JSON.parse(localStorage.getItem('cattytech-user'));
-            console.log(isUser)
+            
             localStorage.setItem('cattytech-email', email);
 
             if (isUser) {
-                console.log("yes");
+               
                 await addCustomer(email);
                 setIsCustomer(true);
                 setEmail(email);
@@ -77,8 +77,10 @@ export const UserProvider = ({ children }) => {
     }
 
     const protectPage = () => {
+       
         if (!isLoggedIn) {
-            navigate('/');
+            
+            navigate('/login');
             //location.href = '/';
         }
     }

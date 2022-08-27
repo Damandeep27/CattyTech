@@ -11,8 +11,8 @@ import { ColorModeScript } from '@chakra-ui/react'
 
 
 ReactDOM.render((
+  
   <ChakraProvider theme={theme}>
-        
         <BrowserRouter>
             <CoreProvider>
                 <UserProvider>
@@ -20,8 +20,10 @@ ReactDOM.render((
                   <App /> 
                   </UserProvider>
             </CoreProvider>
-        </BrowserRouter>
+            </BrowserRouter>
+        
     </ChakraProvider>
+    
   
   ), document.getElementById('react-container')
 );

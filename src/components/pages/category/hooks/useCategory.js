@@ -9,7 +9,7 @@ export const useCategory = () => {
     const { protectPage } = useUser();
     
     const { category } = useParams();
-    console.log(category);
+    
     const [searchInput, setSearchInput] = useState('');
 
     useEffect(() => {

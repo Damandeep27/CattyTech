@@ -8,6 +8,7 @@ import { FiExternalLink } from 'react-icons/fi'
 import { useLanding } from './hooks/useLanding'
 import src1 from '../../../images/service.png'
 import src2 from '../../../images/cart.png'
+import home from "../../../images/h3.png"
 import React from 'react'
 
 const SiteInfoList = [
@@ -57,8 +58,8 @@ const LandingContents = () => {
                     </Text>
                 </VStack>
                 <Box maxW='600px'>
-                    <SlideFade in={true} offsetY='20px' delay={.45}>
-                        <Image src='/assets/mockup.png' alt='Catty Tech Preview' fallbackSrc='https://via.placeholder.com/1000'/>
+                    <SlideFade in={true}  delay={.45} offsetY="20px">
+                        <Image boxSize='500px' src={home} alt='Catty Tech Preview' fallbackSrc='https://via.placeholder.com/1000'/>
                     </SlideFade>
                 </Box>
             </Flex>

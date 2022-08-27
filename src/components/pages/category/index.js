@@ -50,7 +50,7 @@ const Products = () => {
                                     <Link to={`/product/${product.id}`} >
                                         <Button size='sm'>View Details</Button>
                                     </Link>
-                                    <Button rightIcon={<BsFillCartPlusFill />} size='sm' ml='.5em' onClick={() => AddToCart(product.id)} disabled={isAddingCart}>Add to cart</Button>
+                                    <Button rightIcon={<BsFillCartPlusFill />} size='sm' ml='.5em' onClick={() => AddToCart(product.id,product.name)} disabled={isAddingCart}>Add to cart</Button>
                                 </Flex>
                             </Box>                  
                         ))}

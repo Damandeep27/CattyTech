@@ -51,16 +51,20 @@ const PaymentModal = () => {
 
     return (
         <>
+        
         <Modal onClose={() => setPaymentModalState(false)} isOpen={paymentModalState} isCentered size='xl'>
             <ModalOverlay />
-            <ModalContent>
-                <ModalHeader>
+            <ModalContent  >
+                <ModalHeader mt ="5em" >
                     Checkout Item
                     <Text fontSize='10pt' fontWeight='normal' color='whiteAlpha.600'>
-                        
+                    
                     </Text>
+                 
                 </ModalHeader>
-                <ModalCloseButton />
+                <ModalCloseButton  mt="7 em" />
+
+                
                 <ModalBody>
                     <VStack>
                         <HStack>
@@ -189,6 +193,7 @@ const PaymentModal = () => {
                 </ModalFooter>
             </ModalContent>
         </Modal>
+        
         </>
     )
 }

@@ -4,9 +4,11 @@ import Login from './pages/Login';
 import Shop from './pages/Shop';
 import Product from './pages/[productId]'
 import Cart from './pages/Cart';
+import Success from './pages/Success';
 import { Routes} from "react-router-dom";
 import {Route,Link} from 'react-router-dom'
 import Category from './pages/[category]';
+import Payment from './pages/Payment'
 
 
 
@@ -14,32 +16,26 @@ const App = () => {
   return (
   
             <div className="App">
-            
+           
             <Routes> 
-            <Route path='/'>
-                <Route index element={<Home />} />
+                <Route path='/' element={<Home />} />
+                
+                <Route path='/login' element={<Login />} />
+                
+                <Route path='/shop' element={<Shop />} />
+                
+                <Route path='/category/:category' element={<Category />} />
             
-                <Route path='/login'>
-                    <Route index element={<Login />} />
-                </Route>
-                <Route path='/shop'>
-                    <Route index element={<Shop />} />
-                </Route>
-                <Route path='/category/:category'>
-                    <Route index element={<Category />} />
-                </Route>
-                <Route path='/product/:productId'>
-                    <Route index element={<Product />} />
-                </Route>
-                <Route path='/cart'>
-                    <Route index element={<Cart />} />
-                </Route>
+                <Route path='/product/:productId' element={<Product />} />
+            
+                <Route path='/cart' element={<Cart />} />
                 
-      
-            </Route>
-                
+                <Route path='/success' element={<Success />} />
+                <Route path='/payments' element={<Payment />} />
+            
               
             </Routes>
+        
 
         </div>
     

@@ -10,7 +10,6 @@ export const useShop = () => {
     const [categories, setCategories] = useState();
 
     useEffect(() => {
-        if (!protectPage) return;
         protectPage();
 
         (async () => {
@@ -22,7 +21,7 @@ export const useShop = () => {
 
             setIsCategoryLoading(false);
 		})()
-    }, [])
+    }, [categories])
 
     return {
         isCategoryLoading,
