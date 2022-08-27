@@ -132,6 +132,7 @@ export const CoreProvider = ({ children }) => {
 
     const getShippingCountries = async (checkoutTokenId) => {
         const { countries } = await commerce.services.localeListShippingCountries(checkoutTokenId);
+        
         setShippingCountries(countries);
         setShippingCountry(Object.keys(countries)[0]);
     }
@@ -146,6 +147,7 @@ export const CoreProvider = ({ children }) => {
     const getShippingOptions = async (checkoutTokenId, country, stateProvince = null) => {
         const options = await commerce.checkout.getShippingOptions(checkoutTokenId, { country, region: stateProvince });
         setShippingOptions(options);
+        console.log(options)
         setShippingOption(options[0].id);
     }
 
@@ -158,11 +160,12 @@ export const CoreProvider = ({ children }) => {
             const cartId = getCardId();
         
             const checkoutDataRes = await commerce.checkout.generateToken(cartId, { type: 'cart' });
-            
+            console.log(checkoutDataRes);
             setCheckoutData(checkoutDataRes);
 
             await getShippingCountries(checkoutDataRes.id);
             const division = await getSubdivisions('CA');
+            console.log(division);
             await getShippingOptions(checkoutDataRes.id, 'CA', division);
 
             setPaymentModalState(true);
