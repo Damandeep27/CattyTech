@@ -1,5 +1,5 @@
 export default {
-	serverUrl: 'https://catty-tech.herokuapp.com/',
+	serverUrl: 'https://catty-tech.herokuapp.com',
     commerce: {
         publicKey: 'pk_4625025551459173438c4a318de69414e09c39d624909',
     },
