@@ -52,11 +52,11 @@ const LandingContents = () => {
                                 {isLoggedIn ? 'Go to Shop' : 'Get Started'}
                             </Button>
                         </Link>
-                         <Link href='https://youtu.be/g7NFwI9aZLw' isExternal>
+                         <a href='https://youtu.be/g7NFwI9aZLw' isExternal>
                                             <Button>
                                                 Watch Demo
                                             </Button>
-                         </Link>
+                         </a>
                     </HStack>
                     <Text fontSize='11pt' color='rgb(106, 107, 107)'>
                         <Tag>{customerCount}</Tag> guest customers have shopped with us!
